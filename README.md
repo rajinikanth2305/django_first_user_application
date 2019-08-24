@@ -1,0 +1,2 @@
+# django_first_user_application
+simple user registration application
