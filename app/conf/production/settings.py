@@ -2,7 +2,7 @@ import os
 from os.path import dirname
 from django.utils.translation import ugettext_lazy as _
 import django_heroku
-import dj_database_url
+
 
 
 
@@ -17,9 +17,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&
 #DEBUG = False
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = [
-    "mighty-harbor-45658.herokuapp.com","127.0.0.1"
-]
+ALLOWED_HOSTS = ['mighty-harbor-45658.herokuapp.com','127.0.0.1']
 
 SITE_ID = 1
 
@@ -144,7 +142,11 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 LOCALE_PATHS = [
     os.path.join(CONTENT_DIR, 'locale')
 ]
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
+if 'DATABASE_URL' in os.environ:
+    import dj_database_url
+    DATABASES = {'default': dj_database_url.config()}
+
+#db_from_env = dj_database_url.config(conn_max_age=500)
+#DATABASES['default'].update(db_from_env)
 
 django_heroku.settings(locals())
