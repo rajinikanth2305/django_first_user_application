@@ -1,6 +1,10 @@
 import os
 from os.path import dirname
 from django.utils.translation import ugettext_lazy as _
+import django_heroku
+import dj_database_url
+
+
 
 BASE_DIR = dirname(dirname(dirname(dirname(os.path.abspath(__file__)))))
 CONTENT_DIR = os.path.join(BASE_DIR, 'content')
@@ -140,6 +144,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 LOCALE_PATHS = [
     os.path.join(CONTENT_DIR, 'locale')
 ]
-import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
+
+django_heroku.settings(locals())
