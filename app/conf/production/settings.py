@@ -82,8 +82,13 @@ EMAIL_HOST_PASSWORD = "sanjeev12345"
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME':'mydb',
+        'USER': 'ebmvvllkscuulx',
+        'PASSWORD': 'ea05a3828910d909e8a880ee764807788be349d021dd665a59c80e22fff9816b',
+        'HOST': 'ec2-54-221-198-156.compute-1.amazonaws.com',
+        'PORT': '5432',
+
     }
 }
 
