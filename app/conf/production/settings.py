@@ -131,8 +131,9 @@ LANGUAGES = [
 
 TIME_ZONE = 'UTC'
 USE_TZ = True
-
-STATIC_ROOT = os.path.join(CONTENT_DIR, 'static')
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+#STATIC_ROOT = os.path.join(CONTENT_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(CONTENT_DIR, 'media')
@@ -141,8 +142,8 @@ MEDIA_URL = '/media/'
 STATICFILES_DIRS = [
     os.path.join(CONTENT_DIR, 'assets'),
 ]
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
 LOCALE_PATHS = [
