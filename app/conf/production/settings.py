@@ -14,8 +14,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = [
-    "li2059-168.members.linode.com"
-
+    'mighty-harbor-45658.herokuapp.com','127.0.0.1'
 ]
 
 SITE_ID = 1
